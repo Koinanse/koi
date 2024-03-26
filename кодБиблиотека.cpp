@@ -110,54 +110,8 @@ void addBook(int counter) {
 		main();
 	}
 }
-//deleteBook function
-void deleteBook(int counter) {
-	string isbn;
-	int choice;
-	cout << "DELETE BOOK\n\n";
-	if (counter == 0) {
-		cout << "THERE IS NO BOOK TO DELETE!\n\nPress any key to continue . . .";
-		_getch();
-		main();
-	}
-	cout << "Enter ISBN: ";
-	getline(cin, isbn);
+KOTIK
 
-	for (int i = 0; i < counter; i++) {
-		//finding a match using for loop
-		if (books[i].getIsbn() == isbn) {
-			cout << "\nBOOK FOUND\n\n";
-			cout << "Do you want to delete?\n[1]Yes\n[2]No\n\nEnter Choice: ";
-			cin >> choice;
-			if (choice == 1) {
-				books[i].setIsbn(""); //setting the value to none
-				books[i].setTitle("");
-				books[i].setAuthor("");
-				books[i].setEdition("");
-				books[i].setPublication("");
-				for (int a = i; a < counter; a++) {
-					//adjusting the values after deletion of data eg. data from book[4] copied to book[3]
-					books[a] = books[a + 1];
-				}
-				books[9].setIsbn(""); //adjustment if the library is full(10 books)
-				books[9].setTitle("");
-				books[9].setAuthor("");
-				books[9].setEdition("");
-				books[9].setPublication("");
-				decrement(counter); //calling function to decrement counter
-				cout << "\nBOOK SUCCESSFULLY DELETED!\n\nPress any key to continue . . .";
-				_getch();
-				main();
-			}
-			else {
-				main();
-			}
-		}
-	}
-	cout << "\nBOOK NOT FOUND!\n\nPress any key to continue . . .";
-	_getch();
-	main();
-}
 void editBook(int counter) {
 	system("CLS");
 	string editIsbn, choice;
